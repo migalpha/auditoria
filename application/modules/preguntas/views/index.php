@@ -15,6 +15,8 @@
 		<th>Categoria Id</th>
 		<th>Deleted</th>
 		<th>Tipo Pregunta</th>
+		<th>Preguntas Grupos</th>
+		<th>Orden</th>
 		<th>Deleted</th>
 			</tr>
 		</thead>

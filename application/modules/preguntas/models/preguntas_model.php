@@ -54,7 +54,7 @@ class Preguntas_model extends BF_Model {
 		array(
 			"field"		=> "preguntas_puntuacion",
 			"label"		=> "Puntuacion",
-			"rules"		=> "required|trim|max_length[4]"
+			"rules"		=> "required|trim|max_length[1]"
 		),
 		array(
 			"field"		=> "preguntas_categoria_id",
@@ -64,12 +64,22 @@ class Preguntas_model extends BF_Model {
 		array(
 			"field"		=> "preguntas_deleted",
 			"label"		=> "Deleted",
-			"rules"		=> "required|trim|max_length[1]"
+			"rules"		=> "trim|max_length[1]"
 		),
 		array(
 			"field"		=> "preguntas_tipo_pregunta",
 			"label"		=> "Tipo Pregunta",
 			"rules"		=> "required|trim|max_length[4]"
+		),
+		array(
+			"field"		=> "preguntas_preguntas_grupos_id",
+			"label"		=> "Preguntas Grupos",
+			"rules"		=> "required|trim|max_length[11]"
+		),
+		array(
+			"field"		=> "preguntas_orden",
+			"label"		=> "Orden",
+			"rules"		=> "required|trim|max_length[11]"
 		),
 	);
 	protected $insert_validation_rules 	= array();

@@ -1,9 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * content controller
+ * settings controller
  */
-class content extends Admin_Controller
+class settings extends Admin_Controller
 {
 
 	//--------------------------------------------------------------------
@@ -18,13 +18,11 @@ class content extends Admin_Controller
 	{
 		parent::__construct();
 
-		$this->auth->restrict('Preguntas.Content.View');
+		$this->auth->restrict('Preguntas.Settings.View');
 		$this->load->model('preguntas_model', null, true);
-		$this->load->model('categorias/categorias_model', null, true);
-		$this->load->model('preguntas_tipo/preguntas_tipo_model', null, true);
 		$this->lang->load('preguntas');
 		
-		Template::set_block('sub_nav', 'content/_sub_nav');
+		Template::set_block('sub_nav', 'settings/_sub_nav');
 
 		Assets::add_module_js('preguntas', 'preguntas.js');
 	}
@@ -67,8 +65,6 @@ class content extends Admin_Controller
 		$records = $this->preguntas_model->find_all();
 
 		Template::set('records', $records);
-		Template::set('categorias', $this->categorias_model->formato_dropdown());
-		Template::set('preguntas_tipo', $this->preguntas_tipo_model->formato_dropdown());
 		Template::set('toolbar_title', 'Manage Preguntas');
 		Template::render();
 	}
@@ -83,7 +79,7 @@ class content extends Admin_Controller
 	 */
 	public function create()
 	{
-		$this->auth->restrict('Preguntas.Content.Create');
+		$this->auth->restrict('Preguntas.Settings.Create');
 
 		if (isset($_POST['save']))
 		{
@@ -93,7 +89,7 @@ class content extends Admin_Controller
 				log_activity($this->current_user->id, lang('preguntas_act_create_record') .': '. $insert_id .' : '. $this->input->ip_address(), 'preguntas');
 
 				Template::set_message(lang('preguntas_create_success'), 'success');
-				redirect(SITE_AREA .'/content/preguntas');
+				redirect(SITE_AREA .'/settings/preguntas');
 			}
 			else
 			{
@@ -103,8 +99,6 @@ class content extends Admin_Controller
 		Assets::add_module_js('preguntas', 'preguntas.js');
 
 		Template::set('toolbar_title', lang('preguntas_create') . ' Preguntas');
-		Template::set('categorias', $this->categorias_model->formato_dropdown());
-		Template::set('preguntas_tipo', $this->preguntas_tipo_model->formato_dropdown());
 		Template::render();
 	}
 
@@ -123,12 +117,12 @@ class content extends Admin_Controller
 		if (empty($id))
 		{
 			Template::set_message(lang('preguntas_invalid_id'), 'error');
-			redirect(SITE_AREA .'/content/preguntas');
+			redirect(SITE_AREA .'/settings/preguntas');
 		}
 
 		if (isset($_POST['save']))
 		{
-			$this->auth->restrict('Preguntas.Content.Edit');
+			$this->auth->restrict('Preguntas.Settings.Edit');
 
 			if ($this->save_preguntas('update', $id))
 			{
@@ -144,7 +138,7 @@ class content extends Admin_Controller
 		}
 		else if (isset($_POST['delete']))
 		{
-			$this->auth->restrict('Preguntas.Content.Delete');
+			$this->auth->restrict('Preguntas.Settings.Delete');
 
 			if ($this->preguntas_model->delete($id))
 			{
@@ -153,7 +147,7 @@ class content extends Admin_Controller
 
 				Template::set_message(lang('preguntas_delete_success'), 'success');
 
-				redirect(SITE_AREA .'/content/preguntas');
+				redirect(SITE_AREA .'/settings/preguntas');
 			}
 			else
 			{
@@ -161,8 +155,6 @@ class content extends Admin_Controller
 			}
 		}
 		Template::set('preguntas', $this->preguntas_model->find($id));
-		Template::set('categorias', $this->categorias_model->formato_dropdown());
-		Template::set('preguntas_tipo', $this->preguntas_tipo_model->formato_dropdown());
 		Template::set('toolbar_title', lang('preguntas_edit') .' Preguntas');
 		Template::render();
 	}

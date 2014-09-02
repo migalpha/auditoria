@@ -45,7 +45,7 @@ $id = isset($preguntas['id']) ? $preguntas['id'] : '';
 					10 => 10,
 				);
 
-				echo form_dropdown('preguntas_categoria_id', $categorias, set_value('preguntas_categoria_id', isset($preguntas['categoria_id']) ? $preguntas['categoria_id'] : ''), 'Categoria Id'. lang('bf_form_label_required'));
+				echo form_dropdown('preguntas_categoria_id', $options, set_value('preguntas_categoria_id', isset($preguntas['categoria_id']) ? $preguntas['categoria_id'] : ''), 'Categoria Id'. lang('bf_form_label_required'));
 			?>
 
 			<div class="control-group <?php echo form_error('deleted') ? 'error' : ''; ?>">
@@ -63,7 +63,7 @@ $id = isset($preguntas['id']) ? $preguntas['id'] : '';
 					4 => 4,
 				);
 
-				echo form_dropdown('preguntas_tipo_pregunta', $preguntas_tipo, set_value('preguntas_tipo_pregunta', isset($preguntas['tipo_pregunta']) ? $preguntas['tipo_pregunta'] : ''), 'Tipo Pregunta'. lang('bf_form_label_required'));
+				echo form_dropdown('preguntas_tipo_pregunta', $options, set_value('preguntas_tipo_pregunta', isset($preguntas['tipo_pregunta']) ? $preguntas['tipo_pregunta'] : ''), 'Tipo Pregunta'. lang('bf_form_label_required'));
 			?>
 
 			<?php // Change the values in this array to populate your dropdown as required
@@ -85,7 +85,7 @@ $id = isset($preguntas['id']) ? $preguntas['id'] : '';
 			<div class="form-actions">
 				<input type="submit" name="save" class="btn btn-primary" value="<?php echo lang('preguntas_action_create'); ?>"  />
 				<?php echo lang('bf_or'); ?>
-				<?php echo anchor(SITE_AREA .'/content/preguntas', lang('preguntas_cancel'), 'class="btn btn-warning"'); ?>
+				<?php echo anchor(SITE_AREA .'/settings/preguntas', lang('preguntas_cancel'), 'class="btn btn-warning"'); ?>
 				
 			</div>
 		</fieldset>

@@ -1,8 +1,8 @@
 <?php
 
 $num_columns	= 8;
-$can_delete	= $this->auth->has_permission('Preguntas.Content.Delete');
-$can_edit		= $this->auth->has_permission('Preguntas.Content.Edit');
+$can_delete	= $this->auth->has_permission('Preguntas.Settings.Delete');
+$can_edit		= $this->auth->has_permission('Preguntas.Settings.Edit');
 $has_records	= isset($records) && is_array($records) && count($records);
 
 ?>
@@ -48,14 +48,14 @@ $has_records	= isset($records) && is_array($records) && count($records);
 					<?php endif;?>
 					
 				<?php if ($can_edit) : ?>
-					<td><?php echo anchor(SITE_AREA . '/content/preguntas/edit/' . $record->id, '<span class="icon-pencil"></span>' .  $record->descripcion); ?></td>
+					<td><?php echo anchor(SITE_AREA . '/settings/preguntas/edit/' . $record->id, '<span class="icon-pencil"></span>' .  $record->descripcion); ?></td>
 				<?php else : ?>
 					<td><?php e($record->descripcion); ?></td>
 				<?php endif; ?>
 					<td><?php e($record->puntuacion) ?></td>
-					<td><?php e($categorias[$record->categoria_id]) ?></td>
+					<td><?php e($record->categoria_id) ?></td>
 					<td><?php echo $record->deleted > 0 ? lang('preguntas_true') : lang('preguntas_false')?></td>
-					<td><?php e($preguntas_tipo[$record->tipo_pregunta]) ?></td>
+					<td><?php e($record->tipo_pregunta) ?></td>
 					<td><?php e($record->preguntas_grupos_id) ?></td>
 					<td><?php e($record->orden) ?></td>
 				</tr>

@@ -16,7 +16,7 @@ class Migration_Install_new_columns extends Migration
 	 */
 	private $fields = array(
 
-		'preguntas_tipo_id' => array(
+		'preguntas_grupos_id' => array(
 			'type' => 'INT',
 			'constraint' => 11,
 			'null' => FALSE,
@@ -47,7 +47,7 @@ class Migration_Install_new_columns extends Migration
 	 */
 	public function down()
 	{
-		$this->dbforge->drop_column($this->table_name,'preguntas_tipo_id');
+		$this->dbforge->drop_column($this->table_name,'preguntas_grupos_id');
 		$this->dbforge->drop_column($this->table_name,'orden');
 	}
 
