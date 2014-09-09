@@ -1,5 +1,5 @@
 <div>
-	<h1 class="page-header">Categorias</h1>
+	<h1 class="page-header">categorias</h1>
 </div>
 
 <br />
@@ -10,7 +10,9 @@
 		<thead>
 			<tr>
 				
-		<th>descripcion</th>
+		<th>Descripcion</th>
+		<th>Deleted</th>
+		<th>Atencion</th>
 		<th>Deleted</th>
 			</tr>
 		</thead>

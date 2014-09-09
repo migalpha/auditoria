@@ -1,13 +1,13 @@
 <?php
 
-$num_columns	= 3;
+$num_columns	= 4;
 $can_delete	= $this->auth->has_permission('Categorias.Content.Delete');
 $can_edit		= $this->auth->has_permission('Categorias.Content.Edit');
 $has_records	= isset($records) && is_array($records) && count($records);
 
 ?>
 <div class="admin-box">
-	<h3>Categorias</h3>
+	<h3>categorias</h3>
 	<?php echo form_open($this->uri->uri_string()); ?>
 		<table class="table table-striped">
 			<thead>
@@ -16,8 +16,9 @@ $has_records	= isset($records) && is_array($records) && count($records);
 					<th class="column-check"><input class="check-all" type="checkbox" /></th>
 					<?php endif;?>
 					
-					<th>descripcion</th>
-					<th><?php echo lang("categorias_column_deleted"); ?></th>
+					<th>Descripcion</th>
+					<th>Deleted</th>
+					<th>Atencion</th>
 				</tr>
 			</thead>
 			<?php if ($has_records) : ?>
@@ -48,6 +49,7 @@ $has_records	= isset($records) && is_array($records) && count($records);
 					<td><?php e($record->descripcion); ?></td>
 				<?php endif; ?>
 					<td><?php echo $record->deleted > 0 ? lang('categorias_true') : lang('categorias_false')?></td>
+					<td><?php e($record->atencion) ?></td>
 				</tr>
 				<?php
 					endforeach;

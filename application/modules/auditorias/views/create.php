@@ -49,6 +49,9 @@ $id = isset($auditorias['id']) ? $auditorias['id'] : '';
 			<?php // Change the values in this array to populate your dropdown as required
 				echo form_dropdown('auditorias_tipo_tienda_id', $tiendas_tipo, set_value('auditorias_tipo_tienda_id', isset($auditorias['tipo_tienda_id']) ? $auditorias['tipo_tienda_id'] : ''), 'Tipo Tienda Id'. lang('bf_form_label_required'),'class = form-control');
 			?>
+			<?php // Change the values in this array to populate your dropdown as required
+				echo form_dropdown('auditorias_tipo_id', $auditorias_tipo, set_value('auditorias_tipo_id', isset($auditorias['auditoria_tipo_id']) ? $auditorias['auditoria_tienda_id'] : ''), 'Tipo de Auditoria'. lang('bf_form_label_required'),'class = form-control');
+			?>
 			<br>
 			<div class="form-actions">
 				<input type="submit" name="save" class="btn btn-primary" value="Crear Auditoría"  />

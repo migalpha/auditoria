@@ -24,6 +24,7 @@ class auditorias extends Front_Controller
 		$this->load->model('preguntas/preguntas_model', null, true);
 		$this->load->model('categorias/categorias_model', null, true);
 		$this->load->model('tiendas_tipo/tiendas_tipo_model', null, true);
+		$this->load->model('auditorias_tipo/auditorias_tipo_model', null, true);
 		$this->load->model('tiendas/tiendas_model', null, true);
 		$this->auth->restrict();
 		$this->lang->load('auditorias');
@@ -63,14 +64,43 @@ class auditorias extends Front_Controller
 	public function cuestionario()
 	{
 		if (isset($_POST['save']))
-		{
+		{	
+			$puntuacion = 60;
+			$preguntas = $this->preguntas_model->find_all();
+			echo "<hr>";
+			$atencion= FALSE;
 			foreach ($this->input->post() as $key => $value)
 			{
 				if (substr($key, 0,1)=="p")
 				{
-					echo $key." => ".$value."<br>";
+					$k = substr($key, 1,3);
+					$puntuacion -= $preguntas[$k-1]->puntuacion*$value;
+					if ($preguntas[$k-1]->atencion == 1 && $value == 1)
+					{
+						$atencion = TRUE;
+					}
 				}
 			}
+			if ($atencion)
+			{
+				$puntuacion -=1;	
+			}
+			$clase="danger";
+			$mensaje = 'Su puntuación es '.$puntuacion.", tienda con graves problemas";
+			if ($puntuacion >= 54)
+			{
+				$clase ="success";
+				$mensaje = 'Su puntuación es '.$puntuacion.", tienda sin fallas";
+			}
+			elseif ($puntuacion >= 42) {
+				$clase= "info"; 
+				$mensaje = 'Su puntuación es '.$puntuacion.", tienda con fallas leves";
+			}
+			elseif ($puntuacion >=30) {
+				$clase= "warning";
+				$mensaje = 'Su puntuación es '.$puntuacion.", tienda con fallas moderadas";
+			}
+			Template::set_message($mensaje, $clase);
 		}
 
 		Template::set('preguntas', $this->preguntas_model->find_all_by('deleted',0));
@@ -106,6 +136,7 @@ class auditorias extends Front_Controller
 
 		Template::set('tiendas',  $this->tiendas_model->tiendas_dropdown());
 		Template::set('tiendas_tipo', $this->tiendas_tipo_model->formato_dropdown());
+		Template::set('auditorias_tipo', $this->auditorias_tipo_model->formato_dropdown());
 		Template::render();
 	}
 

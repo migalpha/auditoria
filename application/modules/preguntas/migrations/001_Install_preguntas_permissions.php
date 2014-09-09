@@ -29,26 +29,6 @@ class Migration_Install_preguntas_permissions extends Migration
 			'description' => '',
 			'status' => 'active',
 		),
-		array(
-			'name' => 'Preguntas.Settings.View',
-			'description' => '',
-			'status' => 'active',
-		),
-		array(
-			'name' => 'Preguntas.Settings.Create',
-			'description' => '',
-			'status' => 'active',
-		),
-		array(
-			'name' => 'Preguntas.Settings.Edit',
-			'description' => '',
-			'status' => 'active',
-		),
-		array(
-			'name' => 'Preguntas.Settings.Delete',
-			'description' => '',
-			'status' => 'active',
-		),
 	);
 
 	/**

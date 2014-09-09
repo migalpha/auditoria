@@ -15,8 +15,9 @@
 		<th>Categoria Id</th>
 		<th>Deleted</th>
 		<th>Tipo Pregunta</th>
-		<th>Preguntas Grupos</th>
+		<th>Preguntas Grupos Id</th>
 		<th>Orden</th>
+		<th>Atencion</th>
 		<th>Deleted</th>
 			</tr>
 		</thead>

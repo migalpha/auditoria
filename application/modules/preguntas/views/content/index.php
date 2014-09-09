@@ -1,6 +1,6 @@
 <?php
 
-$num_columns	= 8;
+$num_columns	= 9;
 $can_delete	= $this->auth->has_permission('Preguntas.Content.Delete');
 $can_edit		= $this->auth->has_permission('Preguntas.Content.Edit');
 $has_records	= isset($records) && is_array($records) && count($records);
@@ -21,8 +21,9 @@ $has_records	= isset($records) && is_array($records) && count($records);
 					<th>Categoria Id</th>
 					<th>Deleted</th>
 					<th>Tipo Pregunta</th>
-					<th>Preguntas Grupos</th>
+					<th>Preguntas Grupos Id</th>
 					<th>Orden</th>
+					<th>Atencion</th>
 				</tr>
 			</thead>
 			<?php if ($has_records) : ?>
@@ -58,6 +59,7 @@ $has_records	= isset($records) && is_array($records) && count($records);
 					<td><?php e($preguntas_tipo[$record->tipo_pregunta]) ?></td>
 					<td><?php e($record->preguntas_grupos_id) ?></td>
 					<td><?php e($record->orden) ?></td>
+					<td><?php echo $record->atencion > 0 ? lang('preguntas_true') : lang('preguntas_false')?></td>
 				</tr>
 				<?php
 					endforeach;

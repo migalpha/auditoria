@@ -65,7 +65,7 @@ class content extends Admin_Controller
 		$records = $this->categorias_model->find_all();
 
 		Template::set('records', $records);
-		Template::set('toolbar_title', 'Manage Categorias');
+		Template::set('toolbar_title', 'Manage categorias');
 		Template::render();
 	}
 
@@ -73,7 +73,7 @@ class content extends Admin_Controller
 
 
 	/**
-	 * Creates a Categorias object.
+	 * Creates a categorias object.
 	 *
 	 * @return void
 	 */
@@ -98,7 +98,7 @@ class content extends Admin_Controller
 		}
 		Assets::add_module_js('categorias', 'categorias.js');
 
-		Template::set('toolbar_title', lang('categorias_create') . ' Categorias');
+		Template::set('toolbar_title', lang('categorias_create') . ' categorias');
 		Template::render();
 	}
 
@@ -106,7 +106,7 @@ class content extends Admin_Controller
 
 
 	/**
-	 * Allows editing of Categorias data.
+	 * Allows editing of categorias data.
 	 *
 	 * @return void
 	 */
@@ -155,7 +155,7 @@ class content extends Admin_Controller
 			}
 		}
 		Template::set('categorias', $this->categorias_model->find($id));
-		Template::set('toolbar_title', lang('categorias_edit') .' Categorias');
+		Template::set('toolbar_title', lang('categorias_edit') .' categorias');
 		Template::render();
 	}
 
@@ -184,6 +184,8 @@ class content extends Admin_Controller
 		
 		$data = array();
 		$data['descripcion']        = $this->input->post('categorias_descripcion');
+		$data['deleted']        = $this->input->post('categorias_deleted');
+		$data['atencion']        = $this->input->post('categorias_atencion');
 
 		if ($type == 'insert')
 		{

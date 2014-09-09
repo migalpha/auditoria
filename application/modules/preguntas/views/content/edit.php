@@ -35,7 +35,7 @@ $id = isset($preguntas['id']) ? $preguntas['id'] : '';
 			<div class="control-group <?php echo form_error('puntuacion') ? 'error' : ''; ?>">
 				<?php echo form_label('Puntuacion'. lang('bf_form_label_required'), 'preguntas_puntuacion', array('class' => 'control-label') ); ?>
 				<div class='controls'>
-					<input id='preguntas_puntuacion' type='text' name='preguntas_puntuacion' maxlength="1" value="<?php echo set_value('preguntas_puntuacion', isset($preguntas['puntuacion']) ? $preguntas['puntuacion'] : ''); ?>" />
+					<input id='preguntas_puntuacion' type='text' name='preguntas_puntuacion' maxlength="10" value="<?php echo set_value('preguntas_puntuacion', isset($preguntas['puntuacion']) ? $preguntas['puntuacion'] : ''); ?>" />
 					<span class='help-inline'><?php echo form_error('puntuacion'); ?></span>
 				</div>
 			</div>
@@ -45,7 +45,7 @@ $id = isset($preguntas['id']) ? $preguntas['id'] : '';
 					10 => 10,
 				);
 
-				echo form_dropdown('preguntas_categoria_id', $categorias, set_value('preguntas_categoria_id', isset($preguntas['categoria_id']) ? $preguntas['categoria_id'] : ''), 'Categoria Id'. lang('bf_form_label_required'));
+				echo form_dropdown('preguntas_categoria_id', $options, set_value('preguntas_categoria_id', isset($preguntas['categoria_id']) ? $preguntas['categoria_id'] : ''), 'Categoria Id'. lang('bf_form_label_required'));
 			?>
 
 			<div class="control-group <?php echo form_error('deleted') ? 'error' : ''; ?>">
@@ -63,7 +63,7 @@ $id = isset($preguntas['id']) ? $preguntas['id'] : '';
 					4 => 4,
 				);
 
-				echo form_dropdown('preguntas_tipo_pregunta', $preguntas_tipo, set_value('preguntas_tipo_pregunta', isset($preguntas['tipo_pregunta']) ? $preguntas['tipo_pregunta'] : ''), 'Tipo Pregunta'. lang('bf_form_label_required'));
+				echo form_dropdown('preguntas_tipo_pregunta', $options, set_value('preguntas_tipo_pregunta', isset($preguntas['tipo_pregunta']) ? $preguntas['tipo_pregunta'] : ''), 'Tipo Pregunta'. lang('bf_form_label_required'));
 			?>
 
 			<?php // Change the values in this array to populate your dropdown as required
@@ -71,7 +71,7 @@ $id = isset($preguntas['id']) ? $preguntas['id'] : '';
 					11 => 11,
 				);
 
-				echo form_dropdown('preguntas_preguntas_grupos_id', $options, set_value('preguntas_preguntas_grupos_id', isset($preguntas['preguntas_grupos_id']) ? $preguntas['preguntas_grupos_id'] : ''), 'Preguntas Grupos'. lang('bf_form_label_required'));
+				echo form_dropdown('preguntas_preguntas_grupos_id', $options, set_value('preguntas_preguntas_grupos_id', isset($preguntas['preguntas_grupos_id']) ? $preguntas['preguntas_grupos_id'] : ''), 'Preguntas Grupos Id'. lang('bf_form_label_required'));
 			?>
 
 			<div class="control-group <?php echo form_error('orden') ? 'error' : ''; ?>">
@@ -79,6 +79,16 @@ $id = isset($preguntas['id']) ? $preguntas['id'] : '';
 				<div class='controls'>
 					<input id='preguntas_orden' type='text' name='preguntas_orden' maxlength="11" value="<?php echo set_value('preguntas_orden', isset($preguntas['orden']) ? $preguntas['orden'] : ''); ?>" />
 					<span class='help-inline'><?php echo form_error('orden'); ?></span>
+				</div>
+			</div>
+
+			<div class="control-group <?php echo form_error('atencion') ? 'error' : ''; ?>">
+				<?php echo form_label('Atencion'. lang('bf_form_label_required'), 'preguntas_atencion', array('class' => 'control-label') ); ?>
+				<div class='controls'>
+					<label class='checkbox' for='preguntas_atencion'>
+						<input type='checkbox' id='preguntas_atencion' name='preguntas_atencion' value='1' <?php echo (isset($preguntas['atencion']) && $preguntas['atencion'] == 1) ? 'checked="checked"' : set_checkbox('preguntas_atencion', 1); ?>>
+						<span class='help-inline'><?php echo form_error('atencion'); ?></span>
+					</label>
 				</div>
 			</div>
 

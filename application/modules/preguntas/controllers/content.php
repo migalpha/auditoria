@@ -103,8 +103,6 @@ class content extends Admin_Controller
 		Assets::add_module_js('preguntas', 'preguntas.js');
 
 		Template::set('toolbar_title', lang('preguntas_create') . ' Preguntas');
-		Template::set('categorias', $this->categorias_model->formato_dropdown());
-		Template::set('preguntas_tipo', $this->preguntas_tipo_model->formato_dropdown());
 		Template::render();
 	}
 
@@ -161,8 +159,6 @@ class content extends Admin_Controller
 			}
 		}
 		Template::set('preguntas', $this->preguntas_model->find($id));
-		Template::set('categorias', $this->categorias_model->formato_dropdown());
-		Template::set('preguntas_tipo', $this->preguntas_tipo_model->formato_dropdown());
 		Template::set('toolbar_title', lang('preguntas_edit') .' Preguntas');
 		Template::render();
 	}
@@ -198,6 +194,7 @@ class content extends Admin_Controller
 		$data['tipo_pregunta']        = $this->input->post('preguntas_tipo_pregunta');
 		$data['preguntas_grupos_id']        = $this->input->post('preguntas_preguntas_grupos_id');
 		$data['orden']        = $this->input->post('preguntas_orden');
+		$data['atencion']        = $this->input->post('preguntas_atencion');
 
 		if ($type == 'insert')
 		{

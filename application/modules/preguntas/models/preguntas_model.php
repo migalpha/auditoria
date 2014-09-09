@@ -54,7 +54,7 @@ class Preguntas_model extends BF_Model {
 		array(
 			"field"		=> "preguntas_puntuacion",
 			"label"		=> "Puntuacion",
-			"rules"		=> "required|trim|max_length[1]"
+			"rules"		=> "required|trim|max_length[10]"
 		),
 		array(
 			"field"		=> "preguntas_categoria_id",
@@ -64,7 +64,7 @@ class Preguntas_model extends BF_Model {
 		array(
 			"field"		=> "preguntas_deleted",
 			"label"		=> "Deleted",
-			"rules"		=> "trim|max_length[1]"
+			"rules"		=> "required|trim|max_length[1]"
 		),
 		array(
 			"field"		=> "preguntas_tipo_pregunta",
@@ -73,13 +73,18 @@ class Preguntas_model extends BF_Model {
 		),
 		array(
 			"field"		=> "preguntas_preguntas_grupos_id",
-			"label"		=> "Preguntas Grupos",
+			"label"		=> "Preguntas Grupos Id",
 			"rules"		=> "required|trim|max_length[11]"
 		),
 		array(
 			"field"		=> "preguntas_orden",
 			"label"		=> "Orden",
 			"rules"		=> "required|trim|max_length[11]"
+		),
+		array(
+			"field"		=> "preguntas_atencion",
+			"label"		=> "Atencion",
+			"rules"		=> "required|trim|max_length[4]"
 		),
 	);
 	protected $insert_validation_rules 	= array();

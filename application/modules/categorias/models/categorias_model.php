@@ -48,8 +48,18 @@ class Categorias_model extends BF_Model {
 	protected $validation_rules 		= array(
 		array(
 			"field"		=> "categorias_descripcion",
-			"label"		=> "descripcion",
+			"label"		=> "Descripcion",
 			"rules"		=> "required|trim|max_length[255]"
+		),
+		array(
+			"field"		=> "categorias_deleted",
+			"label"		=> "Deleted",
+			"rules"		=> "trim|max_length[1]"
+		),
+		array(
+			"field"		=> "categorias_atencion",
+			"label"		=> "Atencion",
+			"rules"		=> "trim|max_length[1]"
 		),
 	);
 	protected $insert_validation_rules 	= array();
