@@ -55,22 +55,22 @@ class Auditorias_model extends BF_Model {
 		array(
 			"field"		=> "auditorias_cod_base",
 			"label"		=> "Cod Base",
-			"rules"		=> "required|trim|max_length[4]"
+			"rules"		=> "trim|max_length[4]"
 		),
 		array(
 			"field"		=> "auditorias_auditor_id",
 			"label"		=> "Auditor Id",
-			"rules"		=> "required|trim|max_length[3]"
+			"rules"		=> "trim|max_length[3]"
 		),
 		array(
 			"field"		=> "auditorias_atendido_por",
 			"label"		=> "Atendido Por",
-			"rules"		=> "required|trim|max_length[255]"
+			"rules"		=> "trim|max_length[255]"
 		),
 		array(
 			"field"		=> "auditorias_cargo",
 			"label"		=> "Cargo",
-			"rules"		=> "required|trim|max_length[255]"
+			"rules"		=> "trim|max_length[255]"
 		),
 		array(
 			"field"		=> "auditorias_puntaje",
@@ -90,7 +90,7 @@ class Auditorias_model extends BF_Model {
 		array(
 			"field"		=> "auditorias_tipo_tienda_id",
 			"label"		=> "Tipo Tienda Id",
-			"rules"		=> "required|trim|max_length[4]"
+			"rules"		=> "trim|max_length[4]"
 		),
 	);
 	protected $insert_validation_rules 	= array();
@@ -98,4 +98,9 @@ class Auditorias_model extends BF_Model {
 
 	//--------------------------------------------------------------------
 
+	public function actualizar_puntaje($id,$puntos)
+	{
+		$this->db->where('auditoria_id',$id);
+		$this->db->update($this->table_name,$puntos);
+	}
 }

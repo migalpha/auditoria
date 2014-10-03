@@ -57,9 +57,9 @@ class Categorias_model extends BF_Model {
 			"rules"		=> "trim|max_length[1]"
 		),
 		array(
-			"field"		=> "categorias_atencion",
-			"label"		=> "Atencion",
-			"rules"		=> "trim|max_length[1]"
+			"field"		=> "categorias_preguntas_grupos_id",
+			"label"		=> "Preguntas Grupos Id",
+			"rules"		=> "required|trim|max_length[3]"
 		),
 	);
 	protected $insert_validation_rules 	= array();

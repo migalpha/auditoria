@@ -20,6 +20,7 @@ class content extends Admin_Controller
 
 		$this->auth->restrict('Categorias.Content.View');
 		$this->load->model('categorias_model', null, true);
+		$this->load->model('preguntas_grupos/preguntas_grupos_model', null, true);
 		$this->lang->load('categorias');
 		
 		Template::set_block('sub_nav', 'content/_sub_nav');
@@ -65,6 +66,7 @@ class content extends Admin_Controller
 		$records = $this->categorias_model->find_all();
 
 		Template::set('records', $records);
+		Template::set('preguntas_grupos', $this->preguntas_grupos_model->formato_dropdown());
 		Template::set('toolbar_title', 'Manage categorias');
 		Template::render();
 	}
@@ -99,6 +101,7 @@ class content extends Admin_Controller
 		Assets::add_module_js('categorias', 'categorias.js');
 
 		Template::set('toolbar_title', lang('categorias_create') . ' categorias');
+		Template::set('preguntas_grupos', $this->preguntas_grupos_model->formato_dropdown());
 		Template::render();
 	}
 
@@ -185,7 +188,7 @@ class content extends Admin_Controller
 		$data = array();
 		$data['descripcion']        = $this->input->post('categorias_descripcion');
 		$data['deleted']        = $this->input->post('categorias_deleted');
-		$data['atencion']        = $this->input->post('categorias_atencion');
+		$data['preguntas_grupos_id']        = $this->input->post('categorias_preguntas_grupos_id');
 
 		if ($type == 'insert')
 		{

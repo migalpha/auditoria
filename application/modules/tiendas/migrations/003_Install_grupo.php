@@ -1,13 +1,13 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Migration_Install_atencion_column extends Migration
+class Migration_Install_grupo extends Migration
 {
 	/**
 	 * The name of the database table
 	 *
 	 * @var String
 	 */
-	private $table_name = 'categorias';
+	private $table_name = 'tiendas';
 
 	/**
 	 * The table's fields
@@ -15,10 +15,10 @@ class Migration_Install_atencion_column extends Migration
 	 * @var Array
 	 */
 	private $fields = array(
-		'atencion' => array(
-				'type' => 'TINYINT',
-				'constraint' => 1,
-				'default' => '0',
+
+		'cod_grupo_base' => array(
+			'type' => 'INT',
+			'null' => FALSE,
 		),
 	);
 
@@ -41,7 +41,7 @@ class Migration_Install_atencion_column extends Migration
 	 */
 	public function down()
 	{
-		$this->dbforge->drop_column($this->table_name,'atencion');
+		$this->dbforge->drop_column($this->table_name,'cod_grupo_base');
 	}
 
 	//--------------------------------------------------------------------

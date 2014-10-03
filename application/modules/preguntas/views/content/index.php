@@ -57,7 +57,7 @@ $has_records	= isset($records) && is_array($records) && count($records);
 					<td><?php e($categorias[$record->categoria_id]) ?></td>
 					<td><?php echo $record->deleted > 0 ? lang('preguntas_true') : lang('preguntas_false')?></td>
 					<td><?php e($preguntas_tipo[$record->tipo_pregunta]) ?></td>
-					<td><?php e($record->preguntas_grupos_id) ?></td>
+					<td><?php e($preguntas_grupos[$record->preguntas_grupos_id]) ?></td>
 					<td><?php e($record->orden) ?></td>
 					<td><?php echo $record->atencion > 0 ? lang('preguntas_true') : lang('preguntas_false')?></td>
 				</tr>

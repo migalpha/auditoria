@@ -67,4 +67,44 @@ class Tiendas_model extends BF_Model {
 
 	//--------------------------------------------------------------------
 
+	public function tiendas_dropdown()
+	{
+		$query = $this->db->select('cod_base, nombre')->get($this->table_name);
+
+		$options = array();
+		foreach ($query->result() as $row)
+		{
+			$options[$row->cod_base] = $row->cod_base.'-'.strtoupper($row->nombre);
+		}
+
+		return $options;
+
+	}
+
+	public function tiendas_nombres()
+	{
+		$query = $this->db->select('cod_base, nombre')->get($this->table_name);
+
+		$options = array();
+		foreach ($query->result() as $row)
+		{
+			$options[$row->cod_base] = strtoupper($row->nombre);
+		}
+
+		return $options;
+
+	}
+	public function tiendas_grupos()
+	{
+		$query = $this->db->select('cod_base, cod_grupo_base')->get($this->table_name);
+
+		$options = array();
+		foreach ($query->result() as $row)
+		{
+			$options[$row->cod_base] = $row->cod_grupo_base;
+		}
+
+		return $options;
+
+	}
 }

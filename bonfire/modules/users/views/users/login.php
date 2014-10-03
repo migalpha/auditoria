@@ -1,10 +1,19 @@
 <?php
 	$site_open = $this->settings_lib->item('auth.allow_register');
 ?>
-<p><br/><a href="<?php echo site_url(); ?>">&larr; <?php echo lang('us_back_to') . $this->settings_lib->item('site.title'); ?></a></p>
+
+<div class="header">
+    <div class="container">
+        <div class="logo">
+          <a href="<?php echo site_url()?>/auditorias"><img width="193" height="86" src="<?php echo base_url()?>/themes/default/images/logo.png" alt=""></a>
+        </div>
+        <div class="clearfix"> </div>
+        <!----//End-top-nav---->
+     </div>
+</div>
 
 <div id="login">
-	<h2><?php echo lang('us_login'); ?></h2>
+	<h2>Ingrese sus datos</h2>
 
 	<?php echo Template::message(); ?>
 
@@ -40,7 +49,7 @@
 				<div class="controls">
 					<label class="checkbox" for="remember_me">
 						<input type="checkbox" name="remember_me" id="remember_me" value="1" tabindex="3" />
-						<span class="inline-help"><?php echo lang('us_remember_note'); ?></span>
+						<span class="inline-help">Recordarme</span>
 					</label>
 				</div>
 			</div>
@@ -48,7 +57,7 @@
 
 		<div class="control-group">
 			<div class="controls">
-				<input class="btn btn-large btn-primary" type="submit" name="log-me-in" id="submit" value="<?php e(lang('us_let_me_in')); ?>" tabindex="5" />
+				<input class="btn btn-large btn-primary" type="submit" name="log-me-in" id="submit" value="Ingresar" tabindex="5" />
 			</div>
 		</div>
 	<?php echo form_close(); ?>
@@ -70,7 +79,7 @@
 			<?php echo anchor(REGISTER_URL, lang('us_sign_up')); ?>
 		<?php endif; ?>
 
-		<br/><?php echo anchor('/forgot_password', lang('us_forgot_your_password')); ?>
+		<br/><?php echo anchor('/forgot_password', '¿Olvido su contraseña?'); ?>
 	</p>
 
 </div>

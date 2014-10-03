@@ -1044,28 +1044,6 @@ class BF_Model extends CI_Model
 
 	}//end formato_dropdown()
 
-	//---------------------------------------------------------------
-
-	/**
-	 * A convenience method to return options for form dropdown menus.
-	 *
-	 * Can pass either Key ID and Label Table names or Just Label Table name.
-	 *
-	 * @return array The options for the dropdown.
-	 */
-	public function tiendas_dropdown()
-	{
-		$query = $this->db->select('cod_base, nombre')->get($this->table_name);
-
-		$options = array();
-		foreach ($query->result() as $row)
-		{
-			$options[$row->cod_base] = $row->nombre;
-		}
-
-		return $options;
-
-	}//end formato_dropdown()
 
 	//--------------------------------------------------------------------
 	// !CHAINABLE UTILITY METHODS

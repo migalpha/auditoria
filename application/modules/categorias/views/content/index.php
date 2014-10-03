@@ -18,7 +18,7 @@ $has_records	= isset($records) && is_array($records) && count($records);
 					
 					<th>Descripcion</th>
 					<th>Deleted</th>
-					<th>Atencion</th>
+					<th>Preguntas Grupos Id</th>
 				</tr>
 			</thead>
 			<?php if ($has_records) : ?>
@@ -49,7 +49,7 @@ $has_records	= isset($records) && is_array($records) && count($records);
 					<td><?php e($record->descripcion); ?></td>
 				<?php endif; ?>
 					<td><?php echo $record->deleted > 0 ? lang('categorias_true') : lang('categorias_false')?></td>
-					<td><?php e($record->atencion) ?></td>
+					<td><?php e($preguntas_grupos[$record->preguntas_grupos_id]) ?></td>
 				</tr>
 				<?php
 					endforeach;

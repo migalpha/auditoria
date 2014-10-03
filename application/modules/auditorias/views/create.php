@@ -56,7 +56,7 @@ $id = isset($auditorias['id']) ? $auditorias['id'] : '';
 			<div class="form-actions">
 				<input type="submit" name="save" class="btn btn-primary" value="Crear Auditoría"  />
 				<?php echo lang('bf_or'); ?>
-				<?php echo anchor(SITE_AREA .'/content/auditorias', 'Cancelar', 'class="btn btn-warning"'); ?>
+				<?php echo anchor('auditorias', 'Cancelar', 'class="btn btn-warning"'); ?>
 				
 			</div>
 		</fieldset>

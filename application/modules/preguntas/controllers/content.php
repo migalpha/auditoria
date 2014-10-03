@@ -21,6 +21,7 @@ class content extends Admin_Controller
 		$this->auth->restrict('Preguntas.Content.View');
 		$this->load->model('preguntas_model', null, true);
 		$this->load->model('categorias/categorias_model', null, true);
+		$this->load->model('preguntas_grupos/preguntas_grupos_model', null, true);
 		$this->load->model('preguntas_tipo/preguntas_tipo_model', null, true);
 		$this->lang->load('preguntas');
 		
@@ -69,6 +70,7 @@ class content extends Admin_Controller
 		Template::set('records', $records);
 		Template::set('categorias', $this->categorias_model->formato_dropdown());
 		Template::set('preguntas_tipo', $this->preguntas_tipo_model->formato_dropdown());
+		Template::set('preguntas_grupos', $this->preguntas_grupos_model->formato_dropdown());
 		Template::set('toolbar_title', 'Manage Preguntas');
 		Template::render();
 	}
@@ -103,6 +105,9 @@ class content extends Admin_Controller
 		Assets::add_module_js('preguntas', 'preguntas.js');
 
 		Template::set('toolbar_title', lang('preguntas_create') . ' Preguntas');
+		Template::set('categorias', $this->categorias_model->formato_dropdown());
+		Template::set('preguntas_tipo', $this->preguntas_tipo_model->formato_dropdown());
+		Template::set('preguntas_grupos', $this->preguntas_grupos_model->formato_dropdown());
 		Template::render();
 	}
 

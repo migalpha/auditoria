@@ -42,15 +42,13 @@ $id = isset($categorias['id']) ? $categorias['id'] : '';
 				</div>
 			</div>
 
-			<div class="control-group <?php echo form_error('atencion') ? 'error' : ''; ?>">
-				<?php echo form_label('Atencion', 'categorias_atencion', array('class' => 'control-label') ); ?>
-				<div class='controls'>
-					<label class='checkbox' for='categorias_atencion'>
-						<input type='checkbox' id='categorias_atencion' name='categorias_atencion' value='1' <?php echo (isset($categorias['atencion']) && $categorias['atencion'] == 1) ? 'checked="checked"' : set_checkbox('categorias_atencion', 1); ?>>
-						<span class='help-inline'><?php echo form_error('atencion'); ?></span>
-					</label>
-				</div>
-			</div>
+			<?php // Change the values in this array to populate your dropdown as required
+				$options = array(
+					11 => 11,
+				);
+
+				echo form_dropdown('categorias_preguntas_grupos_id', $preguntas_grupos, set_value('categorias_preguntas_grupos_id', isset($preguntas['preguntas_grupos_id']) ? $preguntas['preguntas_grupos_id'] : ''), 'Preguntas Grupos Id'. lang('bf_form_label_required'));
+			?>
 
 			<div class="form-actions">
 				<input type="submit" name="save" class="btn btn-primary" value="<?php echo lang('categorias_action_create'); ?>"  />

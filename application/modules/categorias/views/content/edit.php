@@ -42,13 +42,11 @@ $id = isset($categorias['id']) ? $categorias['id'] : '';
 				</div>
 			</div>
 
-			<div class="control-group <?php echo form_error('atencion') ? 'error' : ''; ?>">
-				<?php echo form_label('Atencion', 'categorias_atencion', array('class' => 'control-label') ); ?>
+			<div class="control-group <?php echo form_error('preguntas_grupos_id') ? 'error' : ''; ?>">
+				<?php echo form_label('Preguntas Grupos Id'. lang('bf_form_label_required'), 'categorias_preguntas_grupos_id', array('class' => 'control-label') ); ?>
 				<div class='controls'>
-					<label class='checkbox' for='categorias_atencion'>
-						<input type='checkbox' id='categorias_atencion' name='categorias_atencion' value='1' <?php echo (isset($categorias['atencion']) && $categorias['atencion'] == 1) ? 'checked="checked"' : set_checkbox('categorias_atencion', 1); ?>>
-						<span class='help-inline'><?php echo form_error('atencion'); ?></span>
-					</label>
+					<input id='categorias_preguntas_grupos_id' type='text' name='categorias_preguntas_grupos_id' maxlength="3" value="<?php echo set_value('categorias_preguntas_grupos_id', isset($categorias['preguntas_grupos_id']) ? $categorias['preguntas_grupos_id'] : ''); ?>" />
+					<span class='help-inline'><?php echo form_error('preguntas_grupos_id'); ?></span>
 				</div>
 			</div>
 

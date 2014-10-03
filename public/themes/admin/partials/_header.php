@@ -41,7 +41,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-					<?php echo anchor( '/', html_escape($this->settings_lib->item('site.title')), 'class="brand"' ); ?>
+					<?php echo anchor( '/auditorias', html_escape($this->settings_lib->item('site.title')), 'class="brand"' ); ?>
 
 
 					<?php if(isset($shortcut_data) && is_array($shortcut_data['shortcuts']) && is_array($shortcut_data['shortcut_keys']) && count($shortcut_data['shortcut_keys'])):?>

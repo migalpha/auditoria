@@ -12,7 +12,7 @@
 				
 		<th>Descripcion</th>
 		<th>Deleted</th>
-		<th>Atencion</th>
+		<th>Preguntas Grupos Id</th>
 		<th>Deleted</th>
 			</tr>
 		</thead>
