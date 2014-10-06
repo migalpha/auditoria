@@ -5,7 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
-    Assets::add_js(array('bootstrap.min.js','jquery-ui.js') );
+    Assets::add_js(array('bootstrap.min.js','jquery-ui.js','jquery.validate.js') );
     Assets::add_css( array('bootstrap.min.css', 'bootstrap-responsive.min.css','bootstrap.css','style.css','jquery-ui.css'));
 
     $inline  = '$(".dropdown-toggle").dropdown();';

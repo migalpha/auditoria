@@ -28,7 +28,7 @@ foreach ($categorias as $row)
 			{?>
 				<?php if($nuevo==0) 
 				{?>
-					<div class="col-xs-6 col-md-5"><b><?php echo $p."- ".$row2->descripcion?>:</b></div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>"  value="0">Si</div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>" value="1">No</div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>" value="na">N/A</div>
+					<div class="col-xs-6 col-md-5"><b><?php echo $p."- ".$row2->descripcion?>:</b></div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>"  value="0" required>Si</div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>" value="1">No</div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>" value="na">N/A</div>
 				<?php
 				}
 				else
@@ -43,7 +43,7 @@ foreach ($categorias as $row)
 			{?>
 				<?php if($nuevo==0) 
 				{?>
-					<div class="col-xs-6 col-md-5"><b><?php echo $p."- ".$row2->descripcion?>:</b></div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>" value="1">Si</div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>"  value="0">No</div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>" value="na">N/A</div>
+					<div class="col-xs-6 col-md-5"><b><?php echo $p."- ".$row2->descripcion?>:</b></div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>" value="1" required>Si</div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>"  value="0">No</div><div class="col-xs-2 col-md-1"><input type="radio" name="p<?php echo $row2->id ?>" value="na">N/A</div>
 				<?php
 				}
 				else
